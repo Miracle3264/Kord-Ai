@@ -62,15 +62,7 @@ function startServer() {
 
     (async () => {
         try {
-            checkFFmpeg((isInstalled) => {
-                if (!isInstalled) {
-                    checkDiskSpace((hasSpace) => {
-                        if (hasSpace) {
-                            downloadFFmpeg();
-                        }
-                    });
-                }
-            });
+            
             server.listen(port, async () => {
                 console.log(`Server is listening on port ${port}`);
                 await kordAi(io, app);
